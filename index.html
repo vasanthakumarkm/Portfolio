@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vasanthakumar KM — Transformation Architect</title>
-<meta name="description" content="Digital Transformation Leader. Change Management Professional. Program Excellence Strategist. 7+ years driving enterprise transformation across global operations and international markets.">
+<meta name="description" content="Digital Transformation Leader. Change Management Professional. Program Excellence Strategist. 7+ years driving enterprise transformation at global scale.">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,38 +57,18 @@
 
 /* ZEUS DARK PALETTE — Primary Mode */
 [data-theme="dark"] {
-  --color-bg:              #080a0d;
-  --color-surface:         #0d1117;
-  --color-surface-2:       #111820;
-  --color-surface-3:       #161f2a;
-  --color-divider:         #1e2733;
-  --color-border:          #243040;
-
-  --color-text:            #e8edf2;
-  --color-text-muted:      #8a9ab0;
-  --color-text-faint:      #4a5a6e;
-  --color-text-inverse:    #080a0d;
-
-  /* Gold — primary accent */
-  --color-gold:            #c9a84c;
-  --color-gold-bright:     #e8c66a;
-  --color-gold-dim:        #7a6030;
-  --color-gold-surface:    rgba(201,168,76,0.08);
-  --color-gold-border:     rgba(201,168,76,0.20);
-
-  /* Ice Blue — signal color */
-  --color-ice:             #4fa8d5;
-  --color-ice-dim:         rgba(79,168,213,0.15);
-  --color-ice-border:      rgba(79,168,213,0.25);
-
-  /* Phosphor Green — data accent */
-  --color-phosphor:        #4caf82;
-  --color-phosphor-dim:    rgba(76,175,130,0.12);
-
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
-  --shadow-lg: 0 16px 48px rgba(0,0,0,0.6);
-  --shadow-gold: 0 0 40px rgba(201,168,76,0.12);
+  --color-bg:#0c0608;--color-surface:#130a0d;--color-surface-2:#1a0e12;
+  --color-surface-3:#200f14;--color-divider:#2a1018;--color-border:#3a1520;
+  --color-text:#f0e6e0;--color-text-muted:#9e7e78;--color-text-faint:#5a3535;
+  --color-text-inverse:#0c0608;
+  --color-gold:#a01830;--color-gold-bright:#c0392b;--color-gold-dim:#5a0f1c;
+  --color-gold-surface:rgba(160,24,48,0.10);--color-gold-border:rgba(160,24,48,0.22);
+  --color-ice:#c06070;--color-ice-dim:rgba(192,96,112,0.15);--color-ice-border:rgba(192,96,112,0.25);
+  --color-violet:#c9956e;--color-violet-dim:rgba(201,149,110,0.15);--color-violet-border:rgba(201,149,110,0.25);
+  --color-success:#4a8c5c;--color-warning:#c9956e;--color-error:#c0392b;
+  --shadow-sm:0 1px 2px rgba(12,6,8,0.5);--shadow-md:0 4px 16px rgba(12,6,8,0.6);
+  --shadow-lg:0 8px 32px rgba(12,6,8,0.7);--shadow-gold:0 0 24px rgba(160,24,48,0.25);
+  --shadow-glow:0 0 40px rgba(192,57,43,0.15);
 }
 
 /* ZEUS LIGHT PALETTE */
@@ -1405,9 +1385,53 @@ body:has(.impact-card:hover) #vz-cursor { width:40px; height:40px; background:tr
   .filter-btn { padding: var(--space-2) var(--space-3); font-size: 0.75rem; }
 }
 
+
+/* Hero CTA hover states */
+.hero-btn-primary:hover{background:var(--color-gold-bright)!important;transform:translateY(-2px)!important;box-shadow:0 8px 28px rgba(192,57,43,0.45)!important;}
+#resume-download-btn:hover{background:var(--color-gold-surface)!important;border-color:var(--color-gold)!important;transform:translateY(-2px)!important;box-shadow:0 4px 16px rgba(160,24,48,0.2)!important;}
+
+
+/* WINE ANIM */
+#scroll-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,#a01830,#c0392b,#c06070);z-index:10000;pointer-events:none;}
+body{cursor:none;}
+a,button,[class*='card'],[class*='tag'],[class*='btn']{cursor:none;}
+#cursor{position:fixed;width:12px;height:12px;border:1.5px solid #c0392b;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;}
+#cursor-trail{position:fixed;width:32px;height:32px;border:1px solid rgba(192,57,43,0.3);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:left .12s ease,top .12s ease;}
+#cursor-glow{position:fixed;width:400px;height:400px;border-radius:50%;pointer-events:none;z-index:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(160,24,48,0.06) 0%,transparent 70%);transition:left .15s ease,top .15s ease;}
+#preloader{position:fixed;inset:0;background:#0c0608;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;}
+#preloader svg{width:80px;height:80px;}
+#preloader-count{font-size:.85rem;letter-spacing:.3em;color:#9e7e78;}
+#preloader-bar{width:120px;height:1px;background:rgba(160,24,48,0.2);position:relative;overflow:hidden;}
+#preloader-bar::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:#a01830;animation:preloader-fill 1.8s ease forwards;}
+@keyframes preloader-fill{to{left:0;}}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:0.3;}
+.orb-1{width:600px;height:600px;top:-10%;right:-10%;background:radial-gradient(circle,rgba(139,20,40,0.65) 0%,transparent 70%);animation:orb-drift-1 12s ease-in-out infinite alternate;}
+.orb-2{width:400px;height:400px;bottom:10%;left:-5%;background:radial-gradient(circle,rgba(80,8,20,0.7) 0%,transparent 70%);animation:orb-drift-2 16s ease-in-out infinite alternate;}
+.orb-3{width:300px;height:300px;top:40%;left:40%;background:radial-gradient(circle,rgba(201,149,110,0.18) 0%,transparent 70%);animation:orb-drift-3 20s ease-in-out infinite alternate;}
+@keyframes orb-drift-1{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,80px) scale(1.1)}}
+@keyframes orb-drift-2{from{transform:translate(0,0) scale(1)}to{transform:translate(80px,-60px) scale(0.9)}}
+@keyframes orb-drift-3{from{transform:translate(0,0) scale(1)}to{transform:translate(-40px,40px) scale(1.1)}}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.45;}
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes ripple-badge{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.8);opacity:0}}
+[class*='card']::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(160,24,48,0.09) 0%,transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:0;border-radius:inherit;}
+[class*='card']:hover::after{opacity:1;}
+hr{clip-path:inset(0 100% 0 0);transition:clip-path .8s ease;}
+hr.anim-in{clip-path:inset(0 0% 0 0);}
+
 </style>
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1/bundled/lenis.min.js'></script>
 </head>
 <body>
+<div id='preloader'><svg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'><path id='vk-path' d='M8 18 L8 62 L28 62 L44 38 L60 62 L72 62 L72 18 L62 18 L62 46 L44 26 L28 46 L28 18 Z' stroke='#a01830' stroke-width='2.5' fill='none' stroke-dasharray='320' stroke-dashoffset='320'/></svg><div id='preloader-count'>0</div><div id='preloader-bar'></div></div>
+<div id='cursor'></div><div id='cursor-trail'></div><div id='cursor-glow'></div>
+<div id='scroll-progress'></div>
+<canvas id='particles'></canvas>
+<div class='orb orb-1'></div><div class='orb orb-2'></div><div class='orb orb-3'></div>
+
 
 <!-- Noise texture -->
 <div class="noise-overlay" aria-hidden="true"></div>
@@ -1465,7 +1489,7 @@ body:has(.impact-card:hover) #vz-cursor { width:40px; height:40px; background:tr
     </h1>
     <div class="hero-sub-row">
       <p class="hero-descriptor">
-        7+ years of enterprise transformation across global operations — driving $270M+ in business impact across 15+ international markets. Now based in Dublin, open to senior transformation, program, and change leadership roles in Ireland.
+        7+ years of enterprise transformation at Amazon — driving $270M+ in business impact across 15+ global markets. Now based in Dublin, open to senior transformation, program, and change leadership roles in Ireland.
       </p>
       <div class="hero-stats-row" aria-label="Key statistics">
         <div class="hero-stat">
@@ -1487,6 +1511,19 @@ body:has(.impact-card:hover) #vz-cursor { width:40px; height:40px; background:tr
       </div>
     </div>
   </div>
+    <div class="hero-cta-row" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;align-items:center;">
+      <a href="#projects" class="hero-btn-primary" style="display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--color-gold);color:var(--color-text-inverse);border-radius:50px;font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 20px rgba(160,24,48,0.4);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        View My Work
+      </a>
+      <a id="resume-download-btn" href="vasanth_resume_professional.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:transparent;color:var(--color-text);border-radius:50px;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--color-gold-border);transition:background .2s,border-color .2s,transform .15s,box-shadow .2s;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </a>
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:6px;padding:13px 24px;background:transparent;color:var(--color-text-muted);border-radius:50px;font-size:.83rem;font-weight:500;text-decoration:none;letter-spacing:.04em;transition:color .2s;">
+        Let&rsquo;s Connect &rarr;
+      </a>
+    </div>
 
   <div class="hero-scroll-signal" aria-hidden="true">
     <div class="scroll-line"></div>
@@ -1611,7 +1648,7 @@ body:has(.impact-card:hover) #vz-cursor { width:40px; height:40px; background:tr
           <div>
             <p class="impact-card-label">Transformation Signature</p>
             <h3 class="impact-hero-title">Cross-Functional Catalog Transformation Program</h3>
-            <p class="impact-hero-subtitle">End-to-end business transformation initiative resolving critical catalog defects across 15+ global marketplaces. Applied Lean Six Sigma DMAIC to re-engineer core workflows at scale.</p>
+            <p class="impact-hero-subtitle">End-to-end business transformation initiative resolving critical catalog defects across 15+ global Amazon marketplaces. Applied Lean Six Sigma DMAIC to re-engineer core workflows at scale.</p>
           </div>
           <div class="impact-progress-row" aria-label="Achievement metrics">
             <div class="impact-progress-item">
@@ -2142,11 +2179,11 @@ body:has(.impact-card:hover) #vz-cursor { width:40px; height:40px; background:tr
             <span class="project-tag project-tag--quality">Quality / ML</span>
           </div>
           <h3 class="project-title">Machine Learning Model Validation</h3>
-          <p class="project-subtitle">Precision 72.42% → 99.5% · 2 Global Markets · Weekly Feedback Loops</p>
+          <p class="project-subtitle">Precision 92.42% → 99.5% · 2 Global Markets · Weekly Feedback Loops</p>
           <p class="project-desc">Served as SPOC for validating ML model outputs, using structured weekly feedback loops to improve prediction quality across two markets — reducing downstream errors significantly.</p>
           <div class="project-kpis">
             <div class="kpi-cell"><span class="kpi-value">99.5%</span><span class="kpi-label">Final Precision</span></div>
-            <div class="kpi-cell"><span class="kpi-value">+27.1pp</span><span class="kpi-label">Precision Improvement</span></div>
+            <div class="kpi-cell"><span class="kpi-value">+7.1pp</span><span class="kpi-label">Precision Improvement</span></div>
             <div class="kpi-cell"><span class="kpi-value">778K</span><span class="kpi-label">Records Validated</span></div>
             <div class="kpi-cell"><span class="kpi-value">2</span><span class="kpi-label">Markets Covered</span></div>
           </div>
@@ -2956,6 +2993,83 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   })();
 
+</script>
+
+<script>
+(function(){
+'use strict';
+var preloader=document.getElementById('preloader');
+var countEl=document.getElementById('preloader-count');
+var vkPath=document.getElementById('vk-path');
+if(vkPath){var dp=0;var di=setInterval(function(){dp=Math.min(dp+6,320);vkPath.setAttribute('stroke-dashoffset',320-dp);if(dp>=320)clearInterval(di);},20);}
+var pn=0;var pc=setInterval(function(){pn=Math.min(pn+2,100);if(countEl)countEl.textContent=pn;if(pn>=100){clearInterval(pc);setTimeout(hidePreloader,300);}},18);
+function hidePreloader(){if(!preloader)return;preloader.style.transition='opacity .5s,transform .5s';preloader.style.opacity='0';preloader.style.transform='translateY(-100%)';setTimeout(function(){preloader.style.display='none';startAll();},550);}
+setTimeout(hidePreloader,2500);
+var cur=document.getElementById('cursor');
+var trail=document.getElementById('cursor-trail');
+var glow=document.getElementById('cursor-glow');
+document.addEventListener('mousemove',function(e){
+  var mx=e.clientX,my=e.clientY;
+  if(cur){cur.style.left=mx+'px';cur.style.top=my+'px';}
+  if(glow){glow.style.left=mx+'px';glow.style.top=my+'px';}
+  setTimeout(function(){if(trail){trail.style.left=mx+'px';trail.style.top=my+'px';}},80);
+});
+document.querySelectorAll('a,button,[class*="card"],[class*="tag"],[class*="btn"]').forEach(function(el){
+  el.addEventListener('mouseenter',function(){if(cur){cur.style.width='22px';cur.style.height='22px';cur.style.background='rgba(192,57,43,0.12)';}});
+  el.addEventListener('mouseleave',function(){if(cur){cur.style.width='12px';cur.style.height='12px';cur.style.background='transparent';}});
+});
+var spBar=document.getElementById('scroll-progress');
+window.addEventListener('scroll',function(){var s=window.scrollY,m=document.body.scrollHeight-window.innerHeight;if(spBar&&m>0)spBar.style.width=(s/m*100)+'%';},{passive:true});
+var canvas=document.getElementById('particles');
+if(canvas){
+  var ctx=canvas.getContext('2d');var isMob=window.innerWidth<768;var COUNT=isMob?40:80;
+  var W,H,pts;
+  function resizeC(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  resizeC();window.addEventListener('resize',resizeC);
+  function mkP(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6,r:Math.random()*1.5+.5,ph:Math.random()*Math.PI*2};}
+  pts=Array.from({length:COUNT},mkP);var fr=0;
+  function drawP(){ctx.clearRect(0,0,W,H);fr++;
+    pts.forEach(function(p,i){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      var op=.1+.3*Math.abs(Math.sin(fr*.01+p.ph));ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(160,24,48,'+op+')';ctx.fill();
+      if(!isMob){pts.forEach(function(q,j){if(j<=i)return;var dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(160,24,48,'+(.08*(1-d/120))+')';ctx.lineWidth=.5;ctx.stroke();}});}
+    });requestAnimationFrame(drawP);}
+  drawP();
+}
+function startAll(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.querySelector('nav,header');
+  if(nav){nav.style.opacity='0';nav.style.transform='translateY(-20px)';nav.style.transition='opacity .6s,transform .6s,background .3s,backdrop-filter .3s,box-shadow .3s';setTimeout(function(){nav.style.opacity='1';nav.style.transform='translateY(0)';},100);window.addEventListener('scroll',function(){var s=window.scrollY>60;nav.style.background=s?'rgba(12,6,8,0.88)':'transparent';nav.style.backdropFilter=s?'blur(16px)':'none';nav.style.boxShadow=s?'0 1px 0 rgba(42,16,24,0.8)':'none';},{passive:true});}
+  if(navigator.maxTouchPoints===0){document.querySelectorAll('[class*="card"]').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');});});}
+  document.querySelectorAll('hr').forEach(function(h){var obs=new IntersectionObserver(function(e){if(e[0].isIntersecting){h.classList.add('anim-in');obs.disconnect();}},{threshold:.1});obs.observe(h);});
+  if(reduced)return;
+  if(typeof Lenis!=='undefined'){var lenis=new Lenis({duration:1.2,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smooth:true,smoothTouch:false});function rafL(time){lenis.raf(time);requestAnimationFrame(rafL);}requestAnimationFrame(rafL);}
+  if(typeof gsap==='undefined')return;
+  gsap.registerPlugin(ScrollTrigger);
+  var heroH1=document.querySelector('[class*="hero"] h1,[class*="hero"] h2');
+  if(heroH1&&!heroH1.dataset.split){heroH1.dataset.split='1';var words=heroH1.innerText.trim().split(/\s+/);heroH1.innerHTML=words.map(function(w){return '<span style="display:inline-block;overflow:hidden;margin-right:.18em"><span class="wfl" style="display:block">'+w+'</span></span>';}).join('');gsap.fromTo(heroH1.querySelectorAll('.wfl'),{y:80,rotationX:-90,opacity:0},{y:0,rotationX:0,opacity:1,duration:.8,stagger:.08,ease:'power4.out',delay:.4});}
+  var heroSub=document.querySelector('[class*="hero-descriptor"],[class*="hero-sub"]');
+  if(heroSub)gsap.fromTo(heroSub,{opacity:0,y:20},{opacity:1,y:0,duration:.7,ease:'power3.out',delay:.9});
+  var heroCta=document.querySelector('.hero-cta-row');
+  if(heroCta)gsap.fromTo(heroCta,{opacity:0,y:16},{opacity:1,y:0,duration:.7,ease:'power3.out',delay:1.1});
+  gsap.utils.toArray('[class*="section-label"],[class*="eyebrow"],[class*="overline"]').forEach(function(el){gsap.fromTo(el,{opacity:0,x:-20},{opacity:1,x:0,duration:.5,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
+  gsap.utils.toArray('section h2,section h3,[class*="section-title"]').forEach(function(el){if(el.closest('[class*="hero"]'))return;gsap.fromTo(el,{opacity:0,y:35},{opacity:1,y:0,duration:.8,ease:'power4.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
+  gsap.utils.toArray('[class*="project-card"],[class*="case-card"],[class*="work-card"]').forEach(function(c,i){gsap.fromTo(c,{opacity:0,y:30,scale:.97},{opacity:1,y:0,scale:1,duration:.7,delay:(i%3)*.08,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 92%',once:true}});});
+  gsap.utils.toArray('[class*="pillar"],[class*="phase-card"],[class*="arsenal"],[class*="credential-card"],[class*="stat-card"]').forEach(function(c,i){gsap.fromTo(c,{opacity:0,y:30},{opacity:1,y:0,duration:.7,delay:(i%4)*.1,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 90%',once:true}});});
+  gsap.utils.toArray('[class*="timeline-item"],[class*="experience-item"],[class*="exp-item"]').forEach(function(el,i){gsap.fromTo(el,{opacity:0,x:-30},{opacity:1,x:0,duration:.7,delay:i*.12,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
+  gsap.utils.toArray('[class*="tech-tag"],[class*="skill-tag"],[class*="tag-item"]').forEach(function(el,i){gsap.fromTo(el,{opacity:0,y:10,scale:.9},{opacity:1,y:0,scale:1,duration:.4,delay:i*.03,ease:'power3.out',scrollTrigger:{trigger:el.parentElement||el,start:'top 90%',once:true}});});
+  document.querySelectorAll('[class*="progress-bar"],[class*="bar-fill"],[class*="kpi-bar"]').forEach(function(el){var target=el.getAttribute('data-width')||el.style.width||'70%';el.style.width='0%';el.style.transition='width 1.4s cubic-bezier(.16,1,.3,1)';ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){el.style.width=target;}});});
+  gsap.to('[class*="hero"] h1,[class*="hero"] h2',{yPercent:-15,ease:'none',scrollTrigger:{trigger:'body',start:'top top',end:'30% top',scrub:true}});
+  gsap.to('.orb',{yPercent:-40,ease:'none',scrollTrigger:{trigger:'body',start:'top top',end:'100% top',scrub:true}});
+  document.querySelectorAll('[class*="about-visual"],[class*="profile-img"],[class*="about-image"]').forEach(function(el){el.style.animation='float 4s ease-in-out infinite';});
+  if(navigator.maxTouchPoints===0){
+    document.querySelectorAll('[class*="project-card"],[class*="case-card"]').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.transform='perspective(800px) rotateX('+((( e.clientY-r.top)/r.height-.5)*-6)+'deg) rotateY('+((e.clientX-r.left)/r.width-.5)*10+'deg) translateY(-6px)';});c.addEventListener('mouseleave',function(){gsap.to(c,{rotateX:0,rotateY:0,y:0,duration:.5,ease:'elastic.out(1,.5)',clearProps:'transform'});});});
+    document.querySelectorAll('.hero-btn-primary,#resume-download-btn').forEach(function(btn){btn.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect();gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.25,y:(e.clientY-r.top-r.height/2)*.25,duration:.3,ease:'power2.out'});});btn.addEventListener('mouseleave',function(){gsap.to(btn,{x:0,y:0,duration:.6,ease:'elastic.out(1,.5)'});});});
+  }
+  var CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$';
+  function scramble(el){var orig=el.textContent;var steps=20;var step=0;var iv=setInterval(function(){step++;var p=step/steps;el.textContent=orig.split('').map(function(ch,i){if(i<Math.floor(p*orig.length))return ch;return ch===' '?' ':CHARS[Math.floor(Math.random()*CHARS.length)];}).join('');if(step>=steps){clearInterval(iv);el.textContent=orig;}},40);}
+  gsap.utils.toArray('section h2').forEach(function(el,i){if(i>=1&&i<=3){var fired=false;ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){if(!fired){fired=true;scramble(el);}}});}});
+}
+})();
 </script>
 </body>
 </html>
