@@ -1516,7 +1516,7 @@ hr.anim-in{clip-path:inset(0 0% 0 0);}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
         View My Work
       </a>
-      <a id="resume-download-btn" href="vasanth_resume_professional.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:transparent;color:var(--color-text);border-radius:50px;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--color-gold-border);transition:background .2s,border-color .2s,transform .15s,box-shadow .2s;">
+      <a id="resume-download-btn" href="Vasanthakumar-KM.pdf" download="Vasanthakumar_KM_Resume.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:transparent;color:var(--color-text);border-radius:50px;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--color-gold-border);transition:background .2s,border-color .2s,transform .15s,box-shadow .2s;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download Resume
       </a>
@@ -2333,8 +2333,7 @@ hr.anim-in{clip-path:inset(0 0% 0 0);}
       </a>
     </div>
     <p class="contact-email">
-      Dublin, Ireland · <a href="mailto:vasanthkm66@gmail.com">vasanthkm66@gmail.com</a> · +353 89 4104411
-    </p>
+      Dublin, Ireland · <a href="mailto:vasanthkm66@gmail.com">vasanthkm66@gmail.com</a></p>
   </div>
 </section>
 
@@ -2463,8 +2462,9 @@ function animCanvas() {
 animCanvas();
 
 // ═══════ HERO COUNTER ANIMATION ═══════
+// ═══════ HERO COUNTER ANIMATION (FIXED) ═══════
+
 function animateCounter(el, end, suffix, prefix) {
-  let start = 0;
   const duration = 2000;
   const startTime = performance.now();
   function update(time) {
@@ -2473,26 +2473,41 @@ function animateCounter(el, end, suffix, prefix) {
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = Math.floor(eased * end);
     el.textContent = (prefix || '') + current + (suffix || '');
-    if(progress < 1) requestAnimationFrame(update);
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = (prefix || '') + end + (suffix || '');
+    }
   }
   requestAnimationFrame(update);
 }
 
-// Intersection observer for counters
-const counters = document.querySelectorAll('[data-count]');
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      const el = entry.target;
-      const count = parseInt(el.dataset.count);
-      const suffix = el.textContent.replace(/[0-9$]/g,'');
-      const prefix = el.textContent.includes('$') ? '$' : '';
-      animateCounter(el, count, suffix, prefix);
-      counterObserver.unobserve(el);
-    }
+// Delay counter init to run AFTER GSAP hero entrance animation (delay 0.8s + duration 0.9s = ~1.8s)
+// Also use threshold:0 so opacity:0 elements still trigger
+setTimeout(function() {
+  const counters = document.querySelectorAll('[data-count]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        const el = entry.target;
+        const count = parseInt(el.dataset.count);
+        // Read suffix/prefix from data attrs to avoid reading '0' text
+        const suffixMap = {'hero-stat-num': ''};
+        const rawText = el.textContent.trim();
+        const prefix = el.closest('[data-prefix]') ? el.closest('[data-prefix]').dataset.prefix 
+                      : (rawText.startsWith('$') ? '$' : '');
+        const suffix = rawText.replace(/^[$]?[0-9]+/, '');
+        animateCounter(el, count, suffix, prefix);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px' });
+  counters.forEach(c => {
+    // Set correct initial display text (not zero) before animation
+    counterObserver.observe(c);
   });
-}, { threshold: 0.5 });
-counters.forEach(c => counterObserver.observe(c));
+}, 1800);
 
 // ═══════ PROGRESS BARS ═══════
 const fills = document.querySelectorAll('.progress-fill');
@@ -3071,5 +3086,64 @@ function startAll(){
 }
 })();
 </script>
+
+<!-- PROJECT FILTER JS -->
+<script>
+(function() {
+  'use strict';
+
+  function initFilter() {
+    var btns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.project-card');
+    if (!btns.length || !cards.length) return;
+
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = this.getAttribute('data-filter');
+
+        btns.forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+
+        cards.forEach(function(card) {
+          var cat = card.getAttribute('data-category');
+          var show = (filter === 'all' || cat === filter);
+
+          if (show) {
+            card.classList.remove('hidden');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(12px)';
+            requestAnimationFrame(function() {
+              requestAnimationFrame(function() {
+                card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              });
+            });
+          } else {
+            card.style.transition = 'opacity 0.2s ease';
+            card.style.opacity = '0';
+            setTimeout(function() {
+              card.classList.add('hidden');
+              card.style.transform = '';
+              card.style.transition = '';
+              card.style.opacity = '';
+            }, 200);
+          }
+        });
+      });
+    });
+
+    var allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+    if (allBtn) allBtn.classList.add('active');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFilter);
+  } else {
+    initFilter();
+  }
+})();
+</script>
+
 </body>
 </html>
