@@ -3070,7 +3070,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const target = document.querySelector(a.getAttribute('href'));
     if(target) {
       e.preventDefault();
-      if(window.lenis) { window.lenis.scrollTo(target, { offset: -80 }); } else { if(window.lenis) { window.lenis.scrollTo(target, { offset: -80 }); } else { target.scrollIntoView({ behavior: 'smooth' }); } }
+      if(window.lenis) { window.lenis.scrollTo(target, { offset: -80 }); } else { if(window.lenis) { window.lenis.scrollTo(target, { offset: -80 }); } else { if(window.lenis){window.lenis.scrollTo(target,{offset:-80,duration:1.2});}else{target.scrollIntoView({behavior:'smooth'});} } }
     }
   });
 });
