@@ -183,7 +183,7 @@ body:has(button:hover) #cursor-ring, body:has(.hero-btn-primary:hover) #cursor-r
   transition: background var(--transition-interactive), border-color var(--transition-interactive);
 }
 .nav-cta:hover { background:var(--color-gold-surface); transform:translateY(-1px) scale(1.04); box-shadow:0 4px 16px rgba(201,168,76,0.2); } .nav-cta:active { transform:scale(0.97); }
-/* Hero CTA Buttons — match nav-cta style */ .hero-cta-row a {   display: inline-flex !important;   align-items: center !important;   gap: var(--space-2) !important;   font-size: var(--text-xs) !important;   letter-spacing: 0.1em !important;   text-transform: uppercase !important;   padding: var(--space-2) var(--space-5) !important;   border: 1px solid var(--color-gold-border) !important;   border-radius: var(--radius-full) !important;   color: var(--color-gold) !important;   background: transparent !important;   text-decoration: none !important;   transition: background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive) !important;   cursor: pointer !important;   font-family: var(--font-display) !important;   font-weight: 500 !important; } .hero-cta-row a:hover {   background: var(--color-gold-surface) !important;   transform: translateY(-1px) scale(1.04) !important; box-shadow: 0 4px 16px rgba(201,168,76,0.2) !important; box-shadow: 0 4px 16px rgba(201,168,76,0.2) !important;   border-color: var(--color-gold) !important; } .nav-theme-toggle {
+/* Hero CTA Buttons — match nav-cta style */ .hero-cta-row a {   display: inline-flex !important;   align-items: center !important;   gap: var(--space-2) !important;   font-size: var(--text-xs) !important;   letter-spacing: 0.1em !important;   text-transform: uppercase !important;   padding: var(--space-2) var(--space-5) !important;   border: 1px solid var(--color-gold-border) !important;   border-radius: var(--radius-full) !important;   color: var(--color-gold) !important;   background: transparent !important;   text-decoration: none !important;   transition: background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive) !important;   cursor: pointer !important;   font-family: var(--font-display) !important;   font-weight: 500 !important; } .hero-cta-row a:hover {   background: var(--color-gold-surface) !important;   transform: translateY(-1px) scale(1.04) !important; box-shadow: 0 4px 16px rgba(201,168,76,0.2) !important; box-shadow: 0 4px 16px rgba(201,168,76,0.2) !important;   border-color: var(--color-gold) !important; } .nav-theme-toggle {
   width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
   border-radius: var(--radius-full); color: var(--color-text-muted);
   transition: color var(--transition-interactive), background var(--transition-interactive);
@@ -1387,7 +1387,7 @@ body:has(.impact-card:hover) #vz-cursor { width:40px; height:40px; background:tr
 
 
 /* Hero CTA hover states */
-.hero-btn-primary:hover{background:var(--color-gold-bright)!important;transform:translateY(-2px)!important;box-shadow:0 8px 28px rgba(192,57,43,0.45)!important;}
+
 #resume-download-btn:hover{background:var(--color-gold-surface)!important;border-color:var(--color-gold)!important;transform:translateY(-2px)!important;box-shadow:0 4px 16px rgba(160,24,48,0.2)!important;}
 
 
@@ -2689,7 +2689,7 @@ function addMagnetic(selector, strength = 0.3) {
 }
 addMagnetic('.btn-primary', 0.25);
 addMagnetic('.btn-secondary', 0.25);
-addMagnetic('.nav-cta', 0.2);
+addMagnetic('.nav-cta', 0.2);   addMagnetic('.hero-btn-primary', 0.2);   addMagnetic('.hero-lets-connect', 0.2);   addMagnetic('.hero-cta-row a', 0.2);
 
 // ── Active Nav Highlight ──
 const sections = document.querySelectorAll('section[id]');
