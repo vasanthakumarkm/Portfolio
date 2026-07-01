@@ -6,7 +6,7 @@
 <div align="center">
 
 # Vasanthakumar KM
-### Digital Transformation Leader &nbsp;·&nbsp; Dublin, Ireland
+### Operations Program Manager Leader &nbsp;·&nbsp; Dublin, Ireland
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-vasanthakumarkm.github.io-c9a84c?style=for-the-badge&logo=github&logoColor=black)](https://vasanthakumarkm.github.io/Portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/vasanthakumar-km)
@@ -18,7 +18,7 @@
 
 ## 👋 About Me
 
-I’m a **Digital Transformation Leader** with 7+ years driving large-scale process improvement, change management, and operational excellence at **Amazon** — across 15+ global marketplaces.
+I’m a **Operations Program manager and Digital Transformation Leader** with 7+ years driving large-scale process improvement, change management, and operational excellence at **Amazon** — across 15+ global marketplaces.
 
 I combine **Lean Six Sigma (Green Belt)** rigour with **Agile delivery discipline** and **human-centred change management** to build programmes that outlast the project timeline.
 
