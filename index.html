@@ -183,7 +183,7 @@ body:has(button:hover) #cursor-ring, body:has(.hero-btn-primary:hover) #cursor-r
   transition: background var(--transition-interactive), border-color var(--transition-interactive);
 }
 .nav-cta:hover { background:var(--color-gold-surface); transform:translateY(-1px) scale(1.04); box-shadow:0 4px 16px rgba(201,168,76,0.2); } .nav-cta:active { transform:scale(0.97); }
-/* Hero CTA Buttons — match nav-cta style */ .hero-cta-row a {   display: inline-flex !important;   align-items: center !important;   gap: var(--space-2) !important;   font-size: var(--text-xs) !important;   letter-spacing: 0.1em !important;   text-transform: uppercase !important;   padding: var(--space-2) var(--space-5) !important;   border: 1px solid var(--color-gold-border) !important;   border-radius: var(--radius-full) !important;   color: var(--color-gold) !important;   background: transparent !important;   text-decoration: none !important;   transition: background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive) !important;   cursor: pointer !important;   font-family: var(--font-display) !important;   font-weight: 500 !important; } .hero-cta-row a:hover {   background: var(--color-gold-surface) !important;   transform: translateY(-1px) scale(1.04) !important;   border-color: var(--color-gold) !important; } .nav-theme-toggle {
+/* Hero CTA Buttons — match nav-cta style */ .hero-cta-row a {   display: inline-flex !important;   align-items: center !important;   gap: var(--space-2) !important;   font-size: var(--text-xs) !important;   letter-spacing: 0.1em !important;   text-transform: uppercase !important;   padding: var(--space-2) var(--space-5) !important;   border: 1px solid var(--color-gold-border) !important;   border-radius: var(--radius-full) !important;   color: var(--color-gold) !important;   background: transparent !important;   text-decoration: none !important;   transition: background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive) !important;   cursor: pointer !important;   font-family: var(--font-display) !important;   font-weight: 500 !important; } .hero-cta-row a:hover {   background: var(--color-gold-surface) !important;   transform: translateY(-1px) scale(1.04) !important; box-shadow: 0 4px 16px rgba(201,168,76,0.2) !important; box-shadow: 0 4px 16px rgba(201,168,76,0.2) !important;   border-color: var(--color-gold) !important; } .nav-theme-toggle {
   width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
   border-radius: var(--radius-full); color: var(--color-text-muted);
   transition: color var(--transition-interactive), background var(--transition-interactive);
@@ -655,11 +655,11 @@ body:has(button:hover) #cursor-ring, body:has(.hero-btn-primary:hover) #cursor-r
 ═══════════════════════════════════════ */
 
 /* ── Magnetic button effect ── */
-.btn-primary, .btn-secondary, .nav-cta {
+.btn-primary, .btn-secondary, .nav-cta, .hero-cta-row a {
   position: relative;
   overflow: hidden;
 }
-.btn-primary::before, .btn-secondary::before, .nav-cta::before {
+.btn-primary::before, .btn-secondary::before, .nav-cta::before, .hero-cta-row a::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -667,7 +667,7 @@ body:has(button:hover) #cursor-ring, body:has(.hero-btn-primary:hover) #cursor-r
   opacity: 0;
   transition: opacity 0.3s;
 }
-.btn-primary:hover::before, .btn-secondary:hover::before, .nav-cta:hover::before { opacity: 1; }
+.btn-primary:hover::before, .btn-secondary:hover::before, .nav-cta:hover::before, .hero-cta-row a:hover::before { opacity: 1; }
 
 /* ── Tilt card glow ── */
 .pillar-card, .expertise-card, .impact-card, .career-body, .phase-item {
@@ -1100,8 +1100,8 @@ body:has(.impact-card:hover) #vz-cursor { width:40px; height:40px; background:tr
 
 /* Magnetic button inner glow */
 .btn-primary, .btn-secondary { position:relative; overflow:hidden; }
-.btn-primary::before, .btn-secondary::before, .nav-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.18) 0%, transparent 60%); opacity:0; transition:opacity 0.3s; }
-.btn-primary:hover::before, .btn-secondary:hover::before, .nav-cta:hover::before { opacity:1; }
+.btn-primary::before, .btn-secondary::before, .nav-cta::before, .hero-cta-row a::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.18) 0%, transparent 60%); opacity:0; transition:opacity 0.3s; }
+.btn-primary:hover::before, .btn-secondary:hover::before, .nav-cta:hover::before, .hero-cta-row a:hover::before { opacity:1; }
 
 /* Section scroll fade */
 @supports (animation-timeline: scroll()) {
@@ -2957,7 +2957,7 @@ function _addMagnetic(sel, str) {
 }
 _addMagnetic('.btn-primary', 0.3);
 _addMagnetic('.btn-secondary', 0.3);
-_addMagnetic('.nav-cta', 0.25); _addMagnetic('.hero-btn-primary', 0.25); _addMagnetic('.hero-btn-secondary', 0.25); _addMagnetic('.hero-lets-connect', 0.25); _addMagnetic('.hero-btn-primary', 0.25); _addMagnetic('.hero-btn-secondary', 0.25); _addMagnetic('.hero-lets-connect', 0.25);
+_addMagnetic('.nav-cta', 0.25); _addMagnetic('.hero-btn-primary', 0.25); _addMagnetic('.hero-btn-secondary', 0.25); _addMagnetic('.hero-lets-connect', 0.25); _addMagnetic('.hero-btn-primary', 0.25); _addMagnetic('.hero-btn-secondary', 0.25); _addMagnetic('.hero-lets-connect', 0.25); _addMagnetic('.hero-cta-row a', 0.25);
 
 // Active nav
 const _secB = document.querySelectorAll('section[id]');
